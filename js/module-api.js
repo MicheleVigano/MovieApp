@@ -12,6 +12,21 @@ export const applist = (s,type) => {
     .then((response) => response.json())
     .then((results) => {
         const items = results.Search;
-        console.log(items);
+        viewItems(items);
     });
+};
+
+/**
+* ciclo l'array
+* @param {array di movie/series/game} items esploro le proprietà che ci sono in ogni item
+*/
+
+const viewItems = (items) => {
+    items.map((item) => {
+        console.group(item.Title);
+        console.log(item.Type);
+        console.log(item.Year);
+        console.log(item.Poster);
+        console.groupEnd();
+    })
 };
