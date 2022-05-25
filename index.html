@@ -8,12 +8,13 @@
   </head>
   <body>
     <script type="module">
-        import {listTerminator, tvTerminator} from './js/module-api.js';
+        import {applist} from './js/module-api.js';
+        import {CONTENT_TYPE} from './js/config.js';
 
         console.log("inizio...")
-        listTerminator();
+        applist("teminator","");
         console.log("...ora per type=series ...")
-        tvTerminator();
+        applist("teminator",CONTENT_TYPE.SERIES);
         console.log("...fine")
     </script>
   </body>

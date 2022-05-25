@@ -1,20 +1,16 @@
-const URL_LIST_TERMINATOR = "http://www.omdbapi.com/?apikey=ca90f062&s=terminator";
-const URL_TV_TERMINATOR = "http://www.omdbapi.com/?apikey=ca90f062&s=terminator&type=series"
+import {BASE_URL} from "./config.js"
 
-export const listTerminator = () => {
-    fetch(URL_LIST_TERMINATOR)
+/**
+* chiamata api per elenchi film, serie, ecc
+* @param {string} url La url da chiamar con la fetch
+*/
+
+export const applist = (s, type) => {
+    const url = BASE_URL + `s=${s}&type=${type}`;
+    fetch(url)
     .then((response) => response.json())
     .then((results) => {
-        const films = results.Search;
-        console.log(films);
-    });
-};
-
-export const tvTerminator = () => {
-    fetch(URL_TV_TERMINATOR)
-    .then((response) => response.json())
-    .then((results) => {
-        const films = results.Search;
-        console.log(films);
+        const items = results.Search;
+        console.log(items);
     });
 };
