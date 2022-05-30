@@ -1,0 +1,41 @@
+.icon-box {
+  position: absolute;
+  top: 5em;
+  left: 3em;
+/*  margin-top: 5em;*/
+
+background: #353535;
+line-height: 40px;
+padding: 10px;
+border-radius: 60px;
+cursor: pointer;
+box-shadow: 0px 10px 20px rgba(0,0,0,0.25);
+}
+
+.title-box {
+    position: relative;
+    height: 60px;
+    background: #353535;
+    line-height: 40px;
+    padding: 10px;
+    border-radius: 60px;
+}
+
+.icon-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background: #353535;
+    padding: 12px;
+    border-radius: 50%;
+  }
+
+  .icon-img {
+    position: relative;
+    height: 30px;
+    background: #353535;
+    line-height: 40px;
+    padding: 10px;
+    border-radius: 60px;
+}

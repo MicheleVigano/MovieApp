@@ -1,21 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+<html>
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script type="module">
-        import {applist} from './js/module-api.js';
-        import {CONTENT_TYPE} from './js/config.js';
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        console.log("inizio...")
-        applist("terminator","");
-        console.log("...ora per type=series ...")
-        applist("terminator",CONTENT_TYPE.SERIES);
-        console.log("...fine")
-    </script>
-  </body>
+     <title>Movie.Parody</title>
+
+     <!-- CSS body and general  -->
+     <link rel="stylesheet"href="style.css">
+     <!-- CSS central menu  -->
+     <link rel="stylesheet"href="menu.css">
+     <!-- CSS search box and form  -->
+     <link rel="stylesheet"href="search.css">
+     <!-- CSS scroll animacion  -->
+     <link rel="stylesheet"href="scroll_animation.css">
+     <!-- font awesome -->
+     <script src="https://kit.fontawesome.com/662a09a328.js" crossorigin="anonymous"></script>
+     <!-- CSS bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+
+  <body style="background-color: #434750;"> <!-- background color -->
+    <script type="module">
+      import {applist} from './js/module-api.js';
+      import {CONTENT_TYPE} from './js/config.js';
+
+      console.log("inizio...")
+      applist("terminator","");
+      console.log("...ora per type=series ...")
+      applist("terminator",CONTENT_TYPE.SERIES);
+      console.log("...fine")
+  </script>
+
+<!--    -----------------------------"navbar" like container-------------------------------------------
+ -->   
+ <div class="container">
+  
+<!--    --------search form------------------------
+ -->   <div class="search-box "><div></div>
+      <input type="text" placeholder="Search by title..."
+      class="search-input"/>
+         <!-- search button -->
+      <a href="#" class="search-btn">
+         <i class="fas fa-search"></i>
+      </a>
+</div>
+
+<!--    -----------icon------------------------
+ -->
+      
+         <img class="icon-box" src="./img/parody_img.png" style="width:6%;">
+
+</div>
+<!--    ---------------------------------------------------------------------------------------------
+ -->       
+
+
+      <div class="body-menu">
+     <ul>
+        <li style="--i:6;"><a href="#"> Explore </a></li>
+        <li style="--i:5;"><a href="#"> English humor </a></li>
+        <li style="--i:4;"><a href="#"> Old </a></li>
+        <li style="--i:3;"><a href="#"> Blockbuster </a></li>
+     </ul>
+   </div>
+    
+
+<!--    --------------------------------------scroll for more------------------------------------------
+ --> 
+
+   <div class="container p-t-4">
+     <span class="mouse mx-auto m-2">
+        <span class="mouse-wheel"></span>
+     </span>
+   </div>
+
+   <!--    --------------------------------------scroll for more------------------------------------------
+ --> 
+
+<hr/>
+     
+     <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
 </html>
