@@ -4,7 +4,7 @@ GET  http://www.omdbapi.com/?apikey=ca90f062&s=Robin%20Hood:%20Men%20in%20Tights
 
 ###
 
-GET  http://www.omdbapi.com/?apikey=ca90f062&t=tt0360717 HTTP/1.1
+GET  http://www.omdbapi.com/?apikey=ca90f062&s=parody&type=movie HTTP/1.1
 
 ###
 
@@ -15,3 +15,11 @@ GET  http://www.omdbapi.com/?apikey=ca90f062&i=tt0110357 HTTP/1.1
 GET  http://www.omdbapi.com/?apikey=ca90f062&t=terminator HTTP/1.1
 
 ###
+
+GET https://imdb-api.com/en/API/Search/k_uwx0bvep/parody HTTP/1.1
+
+###
+
+GET https://imdb-api.com/API/AdvancedSearch/k_uwx0bvep?groups=razzie_winners HTTP/1.1
+
+###  &release_date=1920-01-01,1990-01-01

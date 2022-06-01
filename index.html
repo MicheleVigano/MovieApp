@@ -23,7 +23,9 @@
   </head>
 
   <body style="background-color: #434750;"> <!-- background color -->
-    <script type="module">
+  
+  
+    <!--  <script type="module">
       import {applist} from './js/module-api.js';
       import {CONTENT_TYPE} from './js/config.js';
 
@@ -33,13 +35,15 @@
       applist("terminator",CONTENT_TYPE.SERIES);
       console.log("...fine")
   </script>
+ -->
+
 
 <!--    -----------------------------"navbar" like container-------------------------------------------
  -->   
  <div class="container">
   
 <!--    --------search form------------------------
- -->   <div class="search-box "><div></div>
+ -->   <div class="search-box ">
       <input type="text" placeholder="Search by title..."
       class="search-input"/>
          <!-- search button -->
@@ -47,23 +51,27 @@
          <i class="fas fa-search"></i>
       </a>
 </div>
+</div>
 
 <!--    -----------icon------------------------
  -->
-      
-         <img class="icon-box" src="./img/parody_img.png" style="width:6%;">
-
-</div>
+      <!-- <div class="container">
+        <div class="icon-box">
+          <img class="" src="./img/parody_img.png" style="width:6%;">
+        </div>
+      </div>
+         
+ -->
 <!--    ---------------------------------------------------------------------------------------------
  -->       
 
 
       <div class="body-menu menu-ul">
      <ul>
-        <li class="menu-li" style="--i:6;"><a href="#"> Explore </a></li>
-        <li class="menu-li" style="--i:5;"><a href="#"> English humor </a></li>
+        <li class="menu-li" style="--i:5;"><a href="#explore"> Explore </a></li>
         <li class="menu-li" style="--i:4;"><a href="#"> Old </a></li>
         <li class="menu-li" style="--i:3;"><a href="#"> Blockbuster </a></li>
+        <li class="menu-li" style="--i:2;"><a href="#"> Razzie Awards </a></li>
      </ul>
    </div>
     
@@ -71,7 +79,7 @@
 <!--    --------------------------------------scroll for more------------------------------------------
  --> 
 
-   <div class="container m-4 p-4">
+   <div class="container">
      <span class="mouse mx-auto m-2">
         <span class="mouse-wheel"></span>
      </span>
@@ -84,7 +92,7 @@
 
  <!--    --------------------------------------cards------------------------------------------
  -->
-
+<section id="explore">
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <!--    --------------------------------------first column------------------------------------------
  -->
@@ -253,6 +261,7 @@
     </div>
 </div>
      
+</section>
  <!--    --------------------------------------divider------------------------------------------
  --> 
 
