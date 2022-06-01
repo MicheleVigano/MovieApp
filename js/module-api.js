@@ -25,7 +25,7 @@ export const movielist = (title_index) => {
 */
 
 export const applist = (title) => {
-    const url = BASE_URL + title    ;
+    const url = BASE_URL + "s=" + title +"type=movie";
     console.log(url);
     fetch(url)
     .then((response) => response.json())
@@ -42,17 +42,26 @@ export const applist = (title) => {
 
 const printItems = (items) => { // items è un array di oggetti, ciascuno con le proprietà che vogliamo inserire nell'html
     items.map((item) => {
-        const {Title, Year, Type, Poster} = item;
-        const itemElement = document.createElement("div");
+        const {Title, Year, imdbID, Type, Poster} = item;
         itemElement.classList.add("item");
         itemElement.innerHTML = `
-            <img src="${Poster}" alt="${Title}">
-            <div class="item-info">
-                <h3>${Title}</h3>
-                <p>${Year}</p>
-                <p>${Type}</p>
-            </div>
+        <img id="movie-img" src="${Poster}" class="card-img-top p-3 rounded-3" alt="movie image from IMDB">
+        <div class="card-body">
+          <h5 id="movie-title"  class="card-title">${Title}</h5>
+          <p  id="movie-summary" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li id="movie-description" class="list-group-item border-dark text-white" style="background-color: #353535;">${Year}</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="btn btn-dark">Summary</a>
+        </div>
+      </div>
         `;
-        document.querySelector(".items").appendChild(itemElement);
+       // document.querySelector(".items").appendChild(itemElement);
     })
 };
+
+
+
+  

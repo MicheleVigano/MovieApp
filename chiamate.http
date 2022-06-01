@@ -1,6 +1,6 @@
 
 
-GET  http://www.omdbapi.com/?apikey=ca90f062&s=king HTTP/1.1
+GET  http://www.omdbapi.com/?apikey=ca90f062&s=Robin%20Hood:%20Men%20in%20Tights HTTP/1.1
 
 ###
 

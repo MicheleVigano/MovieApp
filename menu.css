@@ -13,12 +13,12 @@
   min-height:80vh;
   background:#434750;
 }
-ul
+.menu-ul
 {
   position:relative;
  transform:skewY(-15deg);
 }
-ul li
+.menu-ul .menu-li
 {
 position:relative;
 list-style:none;
@@ -29,12 +29,12 @@ z-index: var(--i);
 transition: 0.5s;
 }
 
-ul li:hover{
+.menu-ul .menu-li:hover{
   background:#22FFC0;
   transform:translateX(50px);
 }
 
-ul li::before{
+.menu-ul .menu-li::before{
   content: '';
   position:absolute;
   top:0;
@@ -47,13 +47,13 @@ ul li::before{
   transition:0.5s;
 }
 
-ul li:hover::before
+.menu-ul .menu-li:hover::before
 {
   background:#22FFC0;
 
 }
 
-ul li::after
+.menu-ul .menu-li::after
 {
   content:'';
   position: absolute;
@@ -66,12 +66,12 @@ ul li::after
   transform: skewX(45deg);
   transition: 0.5s;
 }
-ul li:hover::after
+.menu-ul .menu-li:hover::after
 {
   background:#22FFC0;
 }
 
-ul li a
+.menu-ul .menu-li a
 {
   text-decoration:none;
   color:#22ffc0;
@@ -81,11 +81,11 @@ ul li a
   transition: 0.5s;
 }
 
-ul li:hover a
+.menu-ul .menu-li:hover a
 {
   color:#353535;
 }
-ul li:Last-child::after
+.menu-ul .menu-li:Last-child::after
 {
   box-shadow:-120px 120px 20px rgba(0,0,0,0.25);
 }
