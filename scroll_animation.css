@@ -19,10 +19,10 @@ animation: move-wheel 1s linear infinite;
 @keyframes move-wheel {
     0% {
         opacity: 0;
-        transform: translateY(-1rem);
+        transform: translateY(1rem);
     }
     100% {
         opacity: 1;
-        transform: translateY(1rem);
+        transform: translateY(-1rem);
     }
 }
