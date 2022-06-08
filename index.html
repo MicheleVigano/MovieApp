@@ -29,7 +29,7 @@
   
   
      <script type="module">
-      import {search, razzielist, indexlist, explorelist, oMapplist} from './js/module-api.js';
+      import { razzielist, indexlist, explorelist, oMapplist} from './js/module-api.js';
       window.razzie = function() {
         razzielist();
       };
@@ -45,9 +45,9 @@
       window.plot = function(title) {
         oMapplist(title,'plot');
       };
-      window.search = function(){
+     /*  window.search = function(){
         search(document.getElementById("search").value,'search');
-      };
+      }; */
       window.onload = function() {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
