@@ -23,20 +23,27 @@
      <script src="https://kit.fontawesome.com/662a09a328.js" crossorigin="anonymous"></script>
      <!-- CSS bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  </head>
+ 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+</head>
 
   <body style="background-color: #434750;"> <!-- background color -->
   
   
      <script type="module">
-      import { razzielist, indexlist, explorelist, oMapplist} from './js/module-api.js';
+      import {search, clean, razzielist, indexlist, explorelist, oMapplist} from './js/module-api.js';
       window.razzie = function() {
+        clean();
         razzielist();
       };
       window.explore = function() {
+        clean();
         explorelist('explore');
       };
       window.blockbuster = function() {
+        clean();
         explorelist('blockbuster');
       };
       window.oMapplist = function() {
@@ -45,9 +52,10 @@
       window.plot = function(title) {
         oMapplist(title,'plot');
       };
-     /*  window.search = function(){
+      window.search = function(){
+        clean();
         search(document.getElementById("search").value,'search');
-      }; */
+      }; 
       window.onload = function() {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -72,7 +80,7 @@
       <input id="search" type="text" placeholder="Search by title..."
       class="search-input"/>
          <!-- search button -->
-      <a href="#!" onclick="window.search()" class="search-btn">
+      <a id="enter" href="#view-more" onclick="window.search()" class="search-btn">
          <i class="fas fa-search"></i>
       </a>
 </div>
@@ -93,10 +101,10 @@
 
       <div class="body-menu menu-ul">
      <ul>
-        <li class="menu-li" style="--i:4;"><a href="#explore"> Explore </a></li>
-        <li class="menu-li" style="--i:3;"><a href="#view-more" onclick="window.blockbuster()"> Blockbuster </a></li>
-        <li class="menu-li" style="--i:2;"><a href="#view-more" onclick="window.razzie()"> Razzie Awards </a></li>
-        <li class="menu-li " style="--i:1;"><a href="#" class="text-secondary"> DONATE </a></li>
+        <a href="#explore"><li class="menu-li" style="--i:4;"><a href="#explore"> Explore </a></li></a>
+        <a href="#view-more" onclick="window.blockbuster()"><li class="menu-li" style="--i:3;"><a href="#view-more" onclick="window.blockbuster()"> Blockbuster </a></li></a>
+        <a href="#view-more" onclick="window.razzie()"><li class="menu-li" style="--i:2;"><a href="#view-more" onclick="window.razzie()"> Razzie Awards </a></li></a>
+        <a href="https://sostieni.emergency.it/donazione-regolare/?idc=22.REG.WEB.DONAZIONI.076&gclid=CjwKCAjw46CVBhB1EiwAgy6M4vUL0dI6QjEhGjmvo8W6mEmq0h_bdVeyxyAQ4X6Tn17q-qZRwvfD7hoCE2AQAvD_BwE" target="_blank" class="text-secondary"><li class="menu-li " style="--i:1;"><a href="https://sostieni.emergency.it/donazione-regolare/?idc=22.REG.WEB.DONAZIONI.076&gclid=CjwKCAjw46CVBhB1EiwAgy6M4vUL0dI6QjEhGjmvo8W6mEmq0h_bdVeyxyAQ4X6Tn17q-qZRwvfD7hoCE2AQAvD_BwE" target="_blank" class="text-secondary"> DONATE </a></li></a>
      </ul>
    </div>
     
@@ -115,9 +123,7 @@
 
 <hr/>
 
-<!--    --------------------------------------modal------------------------------------------
- --> 
-<div class="container" id="modal"></div>
+
 
  <!--    --------------------------------------cards------------------------------------------
  -->
@@ -149,49 +155,12 @@
   <div class="col justify-content-center order-2">
   <div id="1" class="row justify-content-center">
 
-   <!--  <div class="card text-white m-5 item" style="width: 18rem; background-color: #2e3133; border: 5px #2e3133;">
-      <img id="movie-img" src="http://via.placeholder.com/300x442" class="card-img-top p-3 rounded-3" alt="movie image from IMDB">
-      <div class="card-body">
-        ----
-        <h5 id="movie-title"  class="card-title placeholder-wave"><span class="placeholder col-7 placeholder-lg bg-light rounded-2">title</span></h5>
-        <p  id="movie-summary" class="card-text placeholder-wave">
-          <span class="placeholder col-12 placeholder-xs bg-light rounded-2">...</span>
-          <span class="placeholder col-9 placeholder-xs bg-light rounded-2">...</span>
-          <span class="placeholder col-4 placeholder-xs bg-light rounded-2">...</span>
-        </p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li id="movie-description" class="list-group-item border-dark text-white placeholder-wave" style="background-color: #2e3133;">
-          <span class="placeholder col-6 bg-light rounded-2">year</span>
-        </li>
-      </ul>
-      <div class="card-body">
-        <a href="#!"  class="btn btn-dark" >Plot</a>
-      </div>
-    </div> -->
+   <!-- div-->
 
   </div>
 
 <div id="2" class="row justify-content-center">
-  <!-- <div class="card text-white m-5 item" style="width: 18rem; background-color: #2e3133; border: 5px #2e3133;">
-    <img id="movie-img" src="http://via.placeholder.com/300x442" class="card-img-top p-3 rounded-3" alt="movie image from IMDB">
-    <div class="card-body">
-      <h5 id="movie-title"  class="card-title placeholder-wave"><span class="placeholder col-7 placeholder-lg bg-light rounded-2">title</span></h5>
-      <p  id="movie-summary" class="card-text placeholder-wave">
-        <span class="placeholder col-12 placeholder-xs bg-light rounded-2">...</span>
-        <span class="placeholder col-9 placeholder-xs bg-light rounded-2">...</span>
-        <span class="placeholder col-4 placeholder-xs bg-light rounded-2">...</span>
-      </p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li id="movie-description" class="list-group-item border-dark text-white placeholder-wave" style="background-color: #2e3133;">
-        <span class="placeholder col-6 bg-light rounded-2">year</span>
-      </li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="btn btn-dark">Plot</a>
-    </div>
-  </div> -->
+     <!-- div-->
 </div>
 
   </div>
@@ -220,25 +189,7 @@
   </div>
   <div id="3" class="row justify-content-center">
   
-    <!-- <div class="card text-white m-5 item" style="width: 18rem; background-color: #2e3133; border: 5px #2e3133;">
-      <img id="movie-img" src="http://via.placeholder.com/300x442" class="card-img-top p-3 rounded-3" alt="movie image from IMDB">
-      <div class="card-body">
-        <h5 id="movie-title"  class="card-title placeholder-wave"><span class="placeholder col-7 placeholder-lg bg-light rounded-2">title</span></h5>
-        <p  id="movie-summary" class="card-text placeholder-wave">
-          <span class="placeholder col-12 placeholder-xs bg-light rounded-2">...</span>
-          <span class="placeholder col-9 placeholder-xs bg-light rounded-2">...</span>
-          <span class="placeholder col-4 placeholder-xs bg-light rounded-2">...</span>
-        </p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li id="movie-description" class="list-group-item border-dark text-white placeholder-wave" style="background-color: #2e3133;">
-          <span class="placeholder col-6 bg-light rounded-2">year</span>
-        </li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="btn btn-dark">Plot</a>
-      </div>
-    </div> -->
+       <!-- div-->
 
     </div>
 
@@ -248,15 +199,15 @@
 <div class="row justify-content-center">
   <div class="card text-white m-5 item rounded-5 d-none d-md-block" style="width: 18rem; background-color: #2e3133; border: 5px #2e3133;">
     <div class="card-body">
-      <h5 id="movie-title"  class="card-title text-center">SUPPORTACI</h5>
+      <h5 id="movie-title"  class="card-title text-center">SUPPORTA</h5>
     </hr>
       <p  id="movie-summary" class="card-text placeholder-wave text-center" style="color: #757575;">
-       Aiutaci a trovare la parodia che ti piace.
+       supporta una giusta causa.
       </p>
     </div>
    
     <div class="card-body text-center">
-      <a href="#" class="btn" style="color: #22FFC0; background-color:  #434750;">DONATE</a>
+      <a href="https://sostieni.emergency.it/donazione-regolare/?idc=22.REG.WEB.DONAZIONI.076&gclid=CjwKCAjw46CVBhB1EiwAgy6M4vUL0dI6QjEhGjmvo8W6mEmq0h_bdVeyxyAQ4X6Tn17q-qZRwvfD7hoCE2AQAvD_BwE" target="_blank" class="btn" style="color: #22FFC0; background-color:  #434750;">DONATE</a>
       
     </div>
   </div>
@@ -270,63 +221,27 @@
   <div class="col order-4">
     <div id="4" class="row justify-content-center">
   
-      <!-- <div class="card text-white m-5 item" style="width: 18rem; background-color: #2e3133; border: 5px #2e3133;">
-        <img id="movie-img" src="http://via.placeholder.com/300x442" class="card-img-top p-3 rounded-3" alt="movie image from IMDB">
-        <div class="card-body">
-          <h5 id="movie-title"  class="card-title placeholder-wave"><span class="placeholder col-7 placeholder-lg bg-light rounded-2">title</span></h5>
-          <p  id="movie-summary" class="card-text placeholder-wave">
-            <span class="placeholder col-12 placeholder-xs bg-light rounded-2">...</span>
-            <span class="placeholder col-9 placeholder-xs bg-light rounded-2">...</span>
-            <span class="placeholder col-4 placeholder-xs bg-light rounded-2">...</span>
-          </p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li id="movie-description" class="list-group-item border-dark text-white placeholder-wave" style="background-color: #2e3133;">
-            <span class="placeholder col-6 bg-light rounded-2">year</span>
-          </li>
-        </ul>
-        <div class="card-body">
-          <a href="#" class="btn btn-dark">Plot</a>
-        </div>
-      </div> -->
+        <!-- div-->
   
     </div>
   
   <div id="0" class="row justify-content-center">
-    <!-- <div class="card text-white m-5 item" style="width: 18rem; background-color: #2e3133; border: 5px #2e3133;">
-      <img id="movie-img" src="http://via.placeholder.com/300x442" class="card-img-top p-3 rounded-3" alt="movie image from IMDB">
-      <div class="card-body">
-        <h5 id="movie-title"  class="card-title placeholder-wave"><span class="placeholder col-7 placeholder-lg bg-light rounded-2">title</span></h5>
-        <p  id="movie-summary" class="card-text placeholder-wave">
-          <span class="placeholder col-12 placeholder-xs bg-light rounded-2">...</span>
-          <span class="placeholder col-9 placeholder-xs bg-light rounded-2">...</span>
-          <span class="placeholder col-4 placeholder-xs bg-light rounded-2">...</span>
-        </p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li id="movie-description" class="list-group-item border-dark text-white placeholder-wave" style="background-color: #2e3133;">
-          <span class="placeholder col-6 bg-light rounded-2">year</span>
-        </li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="btn btn-dark">Plot</a>
-      </div>
-    </div> -->
+       <!-- div-->
   </div>
   
 <!-- find out more -->
 <div class="row justify-content-center">
   <div class="card text-white m-5 item rounded-5 d-block d-sm-none" style="width: 18rem; background-color: #2e3133; border: 5px #2e3133;">
     <div class="card-body">
-      <h5 id="movie-title"  class="card-title text-center">SUPPORTACI</h5>
+      <h5 id="movie-title"  class="card-title text-center">SUPPORTA</h5>
     </hr>
       <p  id="movie-summary" class="card-text placeholder-wave text-center" style="color: #757575;">
-       Aiutaci a trovare la parodia che ti piace.
+        supporta una giusta causa.
       </p>
     </div>
    
     <div class="card-body text-center">
-      <a href="#" class="btn" style="color: #22FFC0; background-color:  #434750;">DONATE</a>
+      <a href="https://sostieni.emergency.it/donazione-regolare/?idc=22.REG.WEB.DONAZIONI.076&gclid=CjwKCAjw46CVBhB1EiwAgy6M4vUL0dI6QjEhGjmvo8W6mEmq0h_bdVeyxyAQ4X6Tn17q-qZRwvfD7hoCE2AQAvD_BwE" target="_blank" class="btn" style="color: #22FFC0; background-color:  #434750;">DONATE</a>
       
     </div>
   </div>
@@ -341,7 +256,7 @@
   <!-- ############################  cards container  ############################
  -->
  <section id="view-more">
-  <div id="cards-box" class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative;">    <!-- height: 774px; -->
+  <div id="cards-box" class="row card-columns justify-content-center" >    <!-- data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative;" height?? -->
   <!-- <div id="cards-box" class="grid" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative;">  -->   <!--  data-masonry="{&quot;percentPosition&quot;: true }" -->
 
     <!--              here the cards will be loaded                      -->
@@ -399,10 +314,8 @@
   import {indexlist} from './js/module-api.js';
   indexlist();
 </script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
      <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
 
 </body>
 </html>

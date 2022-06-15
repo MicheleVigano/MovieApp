@@ -28,44 +28,30 @@ hr {
   position: relative;
 }
 
-/* clearfix */
-/* .grid:after {
-  content: '';
-  display: block;
-  clear: both;
-} */
-
 /* ---- grid-item ---- */
 
 .grid-item {
   float: left;
 }
 
-.grid-item--width2 { width: 320px; }
-.grid-item--width3 { width: 480px; }
-.grid-item--width4 { width: 720px; }
 
-.grid-item--height2 { height: 200px; }
-.grid-item--height3 { height: 260px; }
-.grid-item--height4 { height: 360px; }
+@media only screen and (min-device-width: 480px){
+  
+  .mobilesearch{
+      displayinline-: block;
+  }
 
-/* ---- stamp ---- */
-
-/* position stamp elements with CSS */
-.stamp {
-  position: absolute;
-  background: orange;
-  border: 4px dotted black;
+  .gsearch{
+    display: none;
+  }
 }
-.stamp1 {
-  left: 30%;
-  top: 10px;
-  width: 20%;
-  height: 180px;
+.mobilesearch{
+  display: none;
 }
-.stamp2 {
-  right: 10%;
-  top: 30px;
-  width: 70%;
-  height: 60px;
+.lgsearch{
+  display: inline-block;
+}
+
+.close-icon {
+  cursor: pointer;
 }
